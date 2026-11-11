@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640">
+  <defs>
+    <radialGradient id="atmosphere"><stop offset=".73" stop-color="#782ee8" stop-opacity="0"/><stop offset=".78" stop-color="#782ee8" stop-opacity=".15"/><stop offset=".81" stop-color="#965aff" stop-opacity=".35"/><stop offset=".85" stop-color="#782ee8" stop-opacity=".05"/><stop offset="1" stop-color="#782ee8" stop-opacity="0"/></radialGradient>
+    <radialGradient id="base" cx="28%" cy="24%" r="79%"><stop stop-color="#c7a3ff"/><stop offset=".25" stop-color="#a164df"/><stop offset=".57" stop-color="#5f269d"/><stop offset=".8" stop-color="#26183f"/><stop offset="1" stop-color="#0b0e1c"/></radialGradient>
+    <radialGradient id="shade" cx="26%" cy="25%" r="76%"><stop offset=".12" stop-color="#d5b6ff" stop-opacity=".15"/><stop offset=".45" stop-color="#240b40" stop-opacity="0"/><stop offset=".75" stop-color="#110a22" stop-opacity=".5"/><stop offset="1" stop-color="#080c19" stop-opacity=".98"/></radialGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e2cbff" stop-opacity=".95"/><stop offset=".35" stop-color="#b176ff" stop-opacity=".65"/><stop offset=".7" stop-color="#782ee8" stop-opacity="0"/></linearGradient>
+    <filter id="terrain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".012 .022" numOctaves="5" seed="42"/><feColorMatrix type="matrix" values=".7 0 0 0 .12  0 .22 0 0 .02  .7 0 .45 0 .18  0 0 0 1 0"/></filter>
+    <filter id="clouds"><feTurbulence type="turbulence" baseFrequency=".008 .035" numOctaves="3" seed="8"/><feColorMatrix type="matrix" values="1 0 0 0 .1  0 .5 0 0 .05  0 0 1 0 .25  0 0 0 .35 0"/></filter>
+    <filter id="soft"><feGaussianBlur stdDeviation="3"/></filter>
+    <clipPath id="disc"><circle cx="320" cy="307" r="237"/></clipPath>
+  </defs>
+  <circle cx="320" cy="307" r="292" fill="url(#atmosphere)"/>
+  <circle cx="320" cy="307" r="240" fill="none" stroke="#9d65f8" stroke-width="3" opacity=".5" filter="url(#soft)"/>
+  <g clip-path="url(#disc)">
+    <circle cx="320" cy="307" r="237" fill="url(#base)"/>
+    <rect x="80" y="65" width="480" height="480" filter="url(#terrain)" opacity=".72" style="mix-blend-mode:soft-light"/>
+    <g fill="none" stroke-linecap="round" transform="rotate(-24 320 307)">
+      <path d="M70 200c90-95 163 38 255-13s165-30 265 48M55 237c90-62 163 50 247 6s158-69 275 32" stroke="#e3bcff" stroke-width="13" opacity=".1"/>
+      <path d="M60 270c70-70 185 65 249-4s168-17 250 26M88 294c87-53 153 43 242-6s146-14 240 25M65 358c118-52 160 47 249 0s177-12 258 33" stroke="#d7a5fa" stroke-width="4" opacity=".2"/>
+      <path d="M100 163c117-50 143 21 244-9s162 6 195 24M125 409c126-43 131 45 248 3s145 4 170 24" stroke="#2e104c" stroke-width="18" opacity=".3"/>
+    </g>
+    <rect x="80" y="65" width="480" height="480" filter="url(#clouds)" opacity=".24" style="mix-blend-mode:screen"/>
+    <circle cx="320" cy="307" r="237" fill="url(#shade)"/>
+    <ellipse cx="219" cy="166" rx="120" ry="60" fill="#dcbdff" opacity=".08" transform="rotate(-35 219 166)" filter="url(#soft)"/>
+  </g>
+  <circle cx="320" cy="307" r="237" fill="none" stroke="url(#rim)" stroke-width="1.4"/>
+</svg>

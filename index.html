@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080C19">
+    <meta name="description" content="Interplanetary Market: uma loja fictícia de 2058 com tecnologia para a vida entre planetas. Projeto escolar com compras simuladas.">
+    <title>Interplanetary Market — O mercado que conecta planetas!</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <!-- Fontes com troca suave e alternativas locais definidas no CSS. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@500;600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <!-- Ícones vetoriais reutilizados em toda a página. -->
+    <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol><symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 7h14l1 14H4L5 7Z"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></symbol><symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 2.7 7.3L22 12l-7.3 2.7L12 22l-2.7-7.3L2 12l7.3-2.7L12 2Z"/></symbol><symbol id="i-orbit" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="12" ry="5" transform="rotate(-35 12 12)"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol><symbol id="i-cube" viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7l9-5Zm0 10 9-5M12 12 3 7m9 5v10M7.5 4.5l9 5"/></symbol><symbol id="i-chip" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="3"/><path d="M9 1v4m6-4v4M9 19v4m6-4v4M1 9h4m-4 6h4m14-6h4m-4 6h4M9 9h6v6H9z"/></symbol><symbol id="i-rocket" viewBox="0 0 24 24"><path d="M9 15c-3-7 4-13 12-12 1 8-5 15-12 12Zm0 0-3 3m6-13-7 1-3 6 6-1m11 1-1 7-6 3 1-6M6 16c-3 0-4 2-4 6 4 0 6-1 6-4"/><circle cx="16" cy="8" r="2"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 2 9 4v6c0 5-9 10-9 10S3 17 3 12V6l9-4Z"/><path d="m8 11 3 3 5-5"/></symbol><symbol id="i-signal" viewBox="0 0 24 24"><path d="M3 8a14 14 0 0 1 18 0M6 12a9 9 0 0 1 12 0m-9 4a4 4 0 0 1 6 0"/><circle cx="12" cy="20" r="1"/></symbol><symbol id="i-wallet" viewBox="0 0 24 24"><path d="M20 8V4H5a3 3 0 0 0 0 6h16v11H5a3 3 0 0 1-3-3V7m19 6h-6v5h6"/><path d="M17 15.5h.1"/></symbol><symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7m4-7v7"/></symbol></svg><a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#inicio" aria-label="Interplanetary Market, início"><svg class="brand-symbol" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="12"/><ellipse cx="24" cy="24" rx="24" ry="8" transform="rotate(-35 24 24)"/><circle cx="35" cy="10" r="3"/></svg><span>interplanetary<span class="brand-bottom">MARKET<span class="brand-dot">®</span></span></span></a>
+        <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+          <a class="active" href="#inicio">Início</a><a href="#produtos">Produtos</a><a href="#destinos">Destinos</a><a href="#tecnologias">Tecnologias</a><a href="#sobre">Sobre</a>
+        </nav>
+        <div class="header-actions">
+          <button class="cart-toggle" id="open-cart" aria-label="Abrir carrinho, 0 itens"><svg class="icon"><use href="#i-bag"/></svg><span class="cart-label">Carrinho</span><span id="cart-count" class="cart-count">0</span></button>
+          <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu"><span></span><span></span></button>
+        </div>
+      </div>
+    </header>
+    <main id="conteudo">
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="hero-grid container">
+          <div class="hero-copy">
+            <p class="eyebrow hero-eyebrow"><span class="status-dot"></span> COMÉRCIO SEM FRONTEIRAS · DESDE 2058</p>
+            <h1 id="hero-title">Seu próximo<br>pedido. Em<br><span>outro planeta.</span></h1>
+            <p class="hero-slogan">O mercado que conecta planetas!</p>
+            <p class="hero-description">Tecnologia para viver o extraordinário. Da sua rotina na Terra à sua próxima aventura em Marte, o futuro chega até você.</p>
+            <a class="button button-lime" href="#produtos">Explorar produtos <svg class="icon"><use href="#i-arrow"/></svg></a>
+            <div class="hero-note">
+              <span class="mini-orbit">✧</span> Novos mundos. Infinitas possibilidades.
+            </div>
+          </div>
+          <div class="hero-art" role="img" aria-label="Um planeta roxo com atmosfera luminosa, cercado por órbitas e rotas de entrega espacial">
+            <span class="art-coordinate">SISTEMA SOLAR / SETOR 03</span>
+            <div class="orbital-ring ring-one">
+            </div>
+            <div class="orbital-ring ring-two">
+            </div>
+            <div class="planet-halo">
+            </div>
+            <img class="hero-planet" src="assets/planet.svg" alt="" width="640" height="640" fetchpriority="high">
+            <div class="orbit-star star-one">
+              ✦
+            </div>
+            <div class="orbit-star star-two">
+              +
+            </div>
+            <div class="space-label label-top">
+              <span class="status-dot"></span> CONEXÃO INTERPLANETÁRIA ATIVA
+            </div>
+            <div class="route-card">
+              <span class="route-icon"><svg class="icon"><use href="#i-rocket"/></svg></span>
+              <div>
+                <span class="route-caption">PRÓXIMA PARADA</span><strong>Marte <span>↗</span></strong><small>Sua entrega a até 12h de distância</small>
+              </div>
+              <span class="route-pulse"></span>
+            </div>
+            <span class="art-footnote">23° 26′ 14″ N <span>EXPLORAR É HUMANO.</span></span>
+          </div>
+        </div>
+        <div class="container hero-benefits">
+          <div>
+            <svg class="icon"><use href="#i-orbit"/></svg><span><strong>6 destinos conectados</strong><small>Um universo de possibilidades</small></span>
+          </div>
+          <div>
+            <svg class="icon"><use href="#i-rocket"/></svg><span><strong>Entregas em velocidade espacial</strong><small>Da Terra aos anéis de Saturno</small></span>
+          </div>
+          <div>
+            <svg class="icon"><use href="#i-shield"/></svg><span><strong>100% imaginação, 0% cobrança</strong><small>Uma experiência de compra fictícia</small></span>
+          </div>
+        </div>
+      </section>
+      <section class="catalog section-pad container" id="produtos" aria-labelledby="products-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span class="section-number">01 /</span> EQUIPADO PARA O FUTURO</p>
+            <h2 id="products-title">Sua vida, em<br>outra dimensão<span class="text-lime">.</span></h2>
+          </div>
+          <p>Pequenas revoluções para grandes jornadas.<br>Descubra o essencial para viver além da Terra.</p>
+        </div>
+        <div class="catalog-toolbar">
+          <div class="filters" role="group" aria-label="Filtrar produtos">
+            <button class="filter active" data-filter="todos" aria-pressed="true">Todos os produtos <span>08</span></button>
+            <button class="filter" data-filter="essenciais" aria-pressed="false">Essenciais</button>
+            <button class="filter" data-filter="exploracao" aria-pressed="false">Exploração</button>
+            <button class="filter" data-filter="tecnologia" aria-pressed="false">Tecnologia</button>
+          </div>
+          <span class="currency-note"><svg class="icon" aria-hidden="true"><use href="#i-wallet"/></svg> CRÉDITOS ESPACIAIS <strong>CE</strong></span>
+        </div>
+        <p class="currency-description"><span class="info-symbol" aria-hidden="true">i</span><span><strong>CE significa Créditos Espaciais</strong>, a moeda digital fictícia utilizada nas transações do Interplanetary Market.</span></p>
+        <!-- Cada cartão mantém os dados do produto no HTML para facilitar a edição. -->
+        <div class="product-grid" id="product-grid">
+          <article class="product-card" data-id="aqualife" data-name="AquaLife" data-price="120" data-category="essenciais">
+            <div class="product-visual aqua">
+              <span class="product-tag">ESSENCIAL</span><span class="product-index">IM—001</span><img src="assets/aqualife.svg" width="360" height="300" alt="Garrafa tecnológica prateada com reservatório de água azul" loading="lazy"><span class="visual-caption">HIDRATAÇÃO REINVENTADA</span>
+            </div>
+            <div class="product-info">
+              <h3>AquaLife<span class="glitch-layers" data-text="AquaLife" aria-hidden="true"></span></h3>
+              <p>Transforma água reciclada em água potável. Cada gota, uma nova possibilidade.</p>
+              <div class="product-bottom">
+                <span class="price">120 <small>CE</small></span>
+                <button class="add-to-cart" aria-label="Adicionar AquaLife ao carrinho"><svg class="icon"><use href="#i-plus"/></svg></button>
+              </div>
+            </div>
+          </article>
+          <article class="product-card" data-id="oxygenmask" data-name="OxygenMask X" data-price="450" data-category="essenciais">
+            <div class="product-visual oxygen">
+              <span class="product-tag">AR PURO, SEMPRE</span><span class="product-index">IM—002</span><img src="assets/oxygenmask.svg" width="360" height="300" alt="Máscara de oxigênio escura com visor azul e filtros laterais" loading="lazy"><span class="visual-caption">RESPIRE NOVOS MUNDOS</span>
+            </div>
+            <div class="product-info">
+              <h3>OxygenMask X<span class="glitch-layers" data-text="OxygenMask X" aria-hidden="true"></span></h3>
+              <p>Produz oxigênio e monitora o ar. Respire com tranquilidade na sua jornada.</p>
+              <div class="product-bottom">
+                <span class="price">450 <small>CE</small></span>
+                <button class="add-to-cart" aria-label="Adicionar OxygenMask X ao carrinho"><svg class="icon"><use href="#i-plus"/></svg></button>
+              </div>
+            </div>
+          </article>
+          <article class="product-card" data-id="astrofood" data-name="AstroFood" data-price="80" data-category="essenciais">
+            <div class="product-visual food">
+              <span class="product-tag">ENERGIA PARA IR ALÉM</span><span class="product-index">IM—003</span><img src="assets/astrofood.svg" width="360" height="300" alt="Embalagem espacial de refeição nutritiva em verde e prata" loading="lazy"><span class="visual-caption">SABOR FORA DE ÓRBITA</span>
+            </div>
+            <div class="product-info">
+              <h3>AstroFood<span class="glitch-layers" data-text="AstroFood" aria-hidden="true"></span></h3>
+              <p>Refeições espaciais compactas e nutritivas. Uma pausa saborosa entre planetas.</p>
+              <div class="product-bottom">
+                <span class="price">80 <small>CE</small></span>
+                <button class="add-to-cart" aria-label="Adicionar AstroFood ao carrinho"><svg class="icon"><use href="#i-plus"/></svg></button>
+              </div>
+            </div>
+          </article>
+          <article class="product-card" data-id="gravityshoes" data-name="GravityShoes" data-price="600" data-category="exploracao">
+            <div class="product-visual shoes">
+              <span class="product-tag">EXPLORE SEM LIMITES</span><span class="product-index">IM—004</span><img src="assets/gravityshoes.svg" width="360" height="300" alt="Tênis futurista branco e roxo com sola de estabilização luminosa" loading="lazy"><span class="visual-caption">SEU PRÓXIMO GRANDE PASSO</span>
+            </div>
+            <div class="product-info">
+              <h3>GravityShoes<span class="glitch-layers" data-text="GravityShoes" aria-hidden="true"></span></h3>
+              <p>Estabilização para diferentes gravidades. Encontre seu equilíbrio em cada destino.</p>
+              <div class="product-bottom">
+                <span class="price">600 <small>CE</small></span>
+                <button class="add-to-cart" aria-label="Adicionar GravityShoes ao carrinho"><svg class="icon"><use href="#i-plus"/></svg></button>
+              </div>
+            </div>
+          </article>
+          <article class="product-card" data-id="smartsuit" data-name="SmartSuit 3000" data-price="950" data-category="exploracao">
+            <div class="product-visual suit">
+              <span class="product-tag">CONFORTO INTELIGENTE</span><span class="product-index">IM—005</span><img src="assets/smartsuit.svg" width="360" height="300" alt="Roupa espacial prateada com detalhes roxos e controle de temperatura" loading="lazy"><span class="visual-caption">PRONTO PARA CADA CLIMA</span>
+            </div>
+            <div class="product-info">
+              <h3>SmartSuit 3000<span class="glitch-layers" data-text="SmartSuit 3000" aria-hidden="true"></span></h3>
+              <p>Regula a temperatura corporal. Seu conforto acompanha a mudança de atmosfera.</p>
+              <div class="product-bottom">
+                <span class="price">950 <small>CE</small></span>
+                <button class="add-to-cart" aria-label="Adicionar SmartSuit 3000 ao carrinho"><svg class="icon"><use href="#i-plus"/></svg></button>
+              </div>
+            </div>
+          </article>
+          <article class="product-card" data-id="holophone" data-name="HoloPhone" data-price="1200" data-category="tecnologia">
+            <div class="product-visual holo">
+              <span class="product-tag">CONEXÕES SEM DISTÂNCIA</span><span class="product-index">IM—006</span><img src="assets/holophone.svg" width="360" height="300" alt="Comunicador circular projetando um holograma azul de um globo" loading="lazy"><span class="visual-caption">PERTO, EM QUALQUER PLANETA</span>
+            </div>
+            <div class="product-info">
+              <h3>HoloPhone<span class="glitch-layers" data-text="HoloPhone" aria-hidden="true"></span></h3>
+              <p>Comunicação com projeções holográficas 3D. A distância ganha outra dimensão.</p>
+              <div class="product-bottom">
+                <span class="price">1.200 <small>CE</small></span>
+                <button class="add-to-cart" aria-label="Adicionar HoloPhone ao carrinho"><svg class="icon"><use href="#i-plus"/></svg></button>
+              </div>
+            </div>
+          </article>
+          <article class="product-card" data-id="minibot" data-name="MiniBot Home" data-price="2000" data-category="tecnologia">
+            <div class="product-visual bot">
+              <span class="product-tag">SEU ALIADO NA ROTINA</span><span class="product-index">IM—007</span><img src="assets/minibot.svg" width="360" height="300" alt="Pequeno robô doméstico branco com rosto digital e olhos verdes" loading="lazy"><span class="visual-caption">MAIS TEMPO PARA DESCOBRIR</span>
+            </div>
+            <div class="product-info">
+              <h3>MiniBot Home<span class="glitch-layers" data-text="MiniBot Home" aria-hidden="true"></span></h3>
+              <p>Um robô doméstico inteligente para ajudar nas tarefas. Até longe de casa.</p>
+              <div class="product-bottom">
+                <span class="price">2.000 <small>CE</small></span>
+                <button class="add-to-cart" aria-label="Adicionar MiniBot Home ao carrinho"><svg class="icon"><use href="#i-plus"/></svg></button>
+              </div>
+            </div>
+          </article>
+          <article class="product-card" data-id="solarpack" data-name="SolarPack" data-price="350" data-category="exploracao">
+            <div class="product-visual solar">
+              <span class="product-tag">MOVIDA PELO SOL</span><span class="product-index">IM—008</span><img src="assets/solarpack.svg" width="360" height="300" alt="Mochila escura com painéis solares azuis e detalhes verdes" loading="lazy"><span class="visual-caption">ENERGIA QUE VAI COM VOCÊ</span>
+            </div>
+            <div class="product-info">
+              <h3>SolarPack<span class="glitch-layers" data-text="SolarPack" aria-hidden="true"></span></h3>
+              <p>Mochila de energia solar para recarregar equipamentos e continuar explorando.</p>
+              <div class="product-bottom">
+                <span class="price">350 <small>CE</small></span>
+                <button class="add-to-cart" aria-label="Adicionar SolarPack ao carrinho"><svg class="icon"><use href="#i-plus"/></svg></button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <p class="catalog-footnote"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg> Valores e compras são demonstrativos. Nenhum pagamento real é realizado.</p>
+      </section>
+      <section class="destinations section-pad" id="destinos" aria-labelledby="destinations-title">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow"><span class="section-number">02 /</span> A DISTÂNCIA É SÓ UM DETALHE</p>
+              <h2 id="destinations-title">Onde você estiver.<br>Nós chegamos<span class="text-lime">.</span></h2>
+            </div>
+            <p>Da nossa casa ao seu novo mundo.<br>Selecione seu destino e planeje a próxima entrega.</p>
+          </div>
+          <div class="delivery-map">
+            <div class="map-orbit map-orbit-one">
+            </div>
+            <div class="map-orbit map-orbit-two">
+            </div>
+            <div class="map-orbit map-orbit-three">
+            </div>
+            <span class="map-label">REDE DE ENTREGAS / SISTEMA SOLAR</span>
+            <div class="map-origin">
+              <span class="status-dot"></span> CENTRO DE DISTRIBUIÇÃO · TERRA
+            </div>
+            <div class="map-route">
+              <span class="map-earth"></span><span class="route-line"></span><svg class="icon"><use href="#i-rocket"/></svg><span class="route-line"></span><span id="map-destination" class="map-target planet-marte"></span>
+            </div>
+            <div class="map-info">
+              <span>SEU PRÓXIMO DESTINO</span><strong id="map-destination-name">Marte</strong>
+              <p id="map-delivery">Entrega em até 12 horas</p>
+            </div>
+            <span class="map-disclaimer">Rotas e prazos fictícios · Ilustração fora de escala</span>
+          </div>
+          <div class="destination-grid" role="group" aria-label="Selecionar destino de entrega">
+            <button class="destination" data-destination="terra" aria-pressed="false"><span class="small-planet planet-terra"></span><span><strong>Terra</strong><small>Nosso ponto de partida</small></span><span class="delivery-time">até <b>2h</b><svg class="icon"><use href="#i-arrow"/></svg></span></button>
+            <button class="destination" data-destination="lua" aria-pressed="false"><span class="small-planet planet-lua"></span><span><strong>Lua</strong><small>Um salto da vizinhança</small></span><span class="delivery-time">até <b>6h</b><svg class="icon"><use href="#i-arrow"/></svg></span></button>
+            <button class="destination selected" data-destination="marte" aria-pressed="true"><span class="small-planet planet-marte"></span><span><strong>Marte</strong><small>Novos horizontes</small></span><span class="delivery-time">até <b>12h</b><svg class="icon"><use href="#i-arrow"/></svg></span></button>
+            <button class="destination" data-destination="venus" aria-pressed="false"><span class="small-planet planet-venus"></span><span><strong>Vênus</strong><small>Estações protegidas</small></span><span class="delivery-time">até <b>24h</b><svg class="icon"><use href="#i-arrow"/></svg></span></button>
+            <button class="destination" data-destination="jupiter" aria-pressed="false"><span class="small-planet planet-jupiter"></span><span><strong>Júpiter</strong><small>Estações orbitais</small></span><span class="delivery-time">até <b>48h</b><svg class="icon"><use href="#i-arrow"/></svg></span></button>
+            <button class="destination" data-destination="saturno" aria-pressed="false"><span class="small-planet planet-saturno"></span><span><strong>Saturno</strong><small>Bases espaciais</small></span><span class="delivery-time">até <b>72h</b><svg class="icon"><use href="#i-arrow"/></svg></span></button>
+          </div>
+        </div>
+      </section>
+      <section class="technology section-pad container" id="tecnologias" aria-labelledby="technology-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span class="section-number">03 /</span> NOS BASTIDORES DO AMANHÃ</p>
+            <h2 id="technology-title">Parece ficção.<br>Aqui, é nossa rotina<span class="text-lime">.</span></h2>
+          </div>
+          <p>No nosso universo de 2058, ideias extraordinárias<br>fazem parte de cada pedido.</p>
+        </div>
+        <div class="technology-grid">
+          <article>
+            <span class="tech-icon"><svg class="icon"><use href="#i-chip"/></svg></span><span class="tech-number">01</span>
+            <h3>Inteligência artificial</h3>
+            <p>Conecta necessidades e soluções para tornar cada experiência de compra mais inteligente.</p>
+          </article>
+          <article>
+            <span class="tech-icon"><svg class="icon"><use href="#i-cube"/></svg></span><span class="tech-number">02</span>
+            <h3>Robôs inteligentes</h3>
+            <p>Separam, conferem e preparam os produtos para que tudo esteja pronto para a decolagem.</p>
+          </article>
+          <article>
+            <span class="tech-icon"><svg class="icon"><use href="#i-rocket"/></svg></span><span class="tech-number">03</span>
+            <h3>Naves autônomas</h3>
+            <p>Levam cada encomenda por rotas espaciais planejadas até o seu destino de entrega.</p>
+          </article>
+          <article>
+            <span class="tech-icon"><svg class="icon"><use href="#i-orbit"/></svg></span><span class="tech-number">04</span>
+            <h3>Realidade aumentada</h3>
+            <p>Na nossa visão de futuro, permite explorar detalhes dos produtos em uma nova dimensão.</p>
+          </article>
+          <article>
+            <span class="tech-icon"><svg class="icon"><use href="#i-shield"/></svg></span><span class="tech-number">05</span>
+            <h3>Blockchain espacial</h3>
+            <p>Registra as etapas de cada transação em uma rede conectada entre diferentes planetas.</p>
+          </article>
+          <article>
+            <span class="tech-icon"><svg class="icon"><use href="#i-wallet"/></svg></span><span class="tech-number">06</span>
+            <h3>Pagamentos interplanetários</h3>
+            <p>Uma só moeda imaginária: créditos espaciais. Conexões sem fronteiras, de ponta a ponta.</p>
+          </article>
+        </div>
+      </section>
+      <section class="how-it-works section-pad" id="como-funciona" aria-labelledby="steps-title">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow"><span class="section-number">04 /</span> DA SUA ESCOLHA À SUA ÓRBITA</p>
+              <h2 id="steps-title">Fácil como olhar para as estrelas.</h2>
+            </div>
+            <span class="steps-sticker">5 PASSOS. UM NOVO MUNDO. <svg class="icon"><use href="#i-star"/></svg></span>
+          </div>
+          <ol class="steps">
+            <li>
+              <span class="step-number">01</span>
+              <h3>Escolha seu futuro</h3>
+              <p>Explore o catálogo e adicione seus favoritos ao carrinho.</p>
+            </li>
+            <li>
+              <span class="step-number">02</span>
+              <h3>Marque o destino</h3>
+              <p>Selecione o planeta ou a estação onde quer receber.</p>
+            </li>
+            <li>
+              <span class="step-number">03</span>
+              <h3>Simule o pagamento</h3>
+              <p>Confira o total em CE e confirme a compra fictícia.</p>
+            </li>
+            <li>
+              <span class="step-number">04</span>
+              <h3>Deixe com os robôs</h3>
+              <p>No nosso universo, a equipe robótica prepara seu pedido.</p>
+            </li>
+            <li>
+              <span class="step-number">05</span>
+              <h3>Próxima parada: você</h3>
+              <p>A nave parte rumo ao seu endereço entre as estrelas.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+      <section class="about section-pad container" id="sobre" aria-labelledby="about-title">
+        <div class="about-panel">
+          <div class="about-orbit" aria-hidden="true">
+            <span>IM</span>
+          </div>
+          <div class="about-copy">
+            <p class="eyebrow"><span class="status-dot"></span> NOSSA ORIGEM, SEU FUTURO</p>
+            <h2 id="about-title">O universo aproxima<br>quem sonha além.</h2>
+            <p>Em 2058, o Interplanetary Market surgiu para conectar fornecedores e moradores de colônias espaciais. Nossa missão é facilitar o acesso a produtos entre diferentes planetas e fazer de cada distância uma nova conexão.</p>
+            <a class="text-link" href="#produtos">Seu próximo capítulo começa aqui <svg class="icon"><use href="#i-arrow"/></svg></a>
+          </div>
+          <span class="about-year">EST. 2058 / PLANET EARTH</span>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer container">
+      <div class="footer-topline">
+        <span><svg class="icon" aria-hidden="true"><use href="#i-orbit"/></svg> CONEXÕES PARA ALÉM DA TERRA</span>
+        <a class="back-to-top" href="#inicio">Voltar ao início <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="footer-main">
+        <div class="footer-intro">
+          <a class="brand footer-brand" href="#inicio" aria-label="Interplanetary Market, início"><svg class="brand-symbol" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="12"/><ellipse cx="24" cy="24" rx="24" ry="8" transform="rotate(-35 24 24)"/><circle cx="35" cy="10" r="3"/></svg><span>interplanetary<span class="brand-bottom">MARKET<span class="brand-dot">®</span></span></span></a>
+          <p>O mercado que conecta planetas!</p>
+          <p class="footer-caption">Uma ideia de 2058, criada com a imaginação de quem olha para o futuro.</p>
+        </div>
+        <nav aria-label="Navegação do rodapé">
+          <p class="footer-heading">EXPLORE O MERCADO</p>
+          <div class="footer-links">
+            <a href="#inicio">Início</a><a href="#produtos">Produtos</a><a href="#destinos">Destinos</a><a href="#tecnologias">Tecnologias</a><a href="#como-funciona">Como funciona</a><a href="#sobre">Sobre</a>
+          </div>
+        </nav>
+        <div class="team">
+          <p class="footer-heading">TRIPULAÇÃO DO PROJETO</p>
+          <dl class="team-members">
+            <div><dt>Integrante 01</dt><dd>Sofia Araújo</dd></div>
+            <div><dt>Integrante 02</dt><dd>Lorena Fassini</dd></div>
+          </dl>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Projeto escolar · 1º ano do Ensino Médio</p>
+        <p>Loja fictícia. Compras simuladas. Imaginação de verdade. <span class="status-dot"></span></p>
+      </div>
+    </footer>
+    <!-- O dialog cuida do foco e permite fechar o carrinho com a tecla Esc. -->
+    <dialog class="cart-dialog" id="cart-dialog" aria-labelledby="cart-title">
+      <div class="cart-header">
+        <div>
+          <p class="eyebrow">SUA PRÓXIMA EXPEDIÇÃO</p>
+          <h2 id="cart-title">Seu carrinho<span class="text-lime">.</span></h2>
+        </div>
+        <button class="icon-button" id="close-cart" aria-label="Fechar carrinho"><svg class="icon"><use href="#i-close"/></svg></button>
+      </div>
+      <p class="simulation-note"><svg class="icon"><use href="#i-shield"/></svg> Compra demonstrativa. Nenhum pagamento real.</p>
+      <div id="cart-content">
+        <div id="cart-items" class="cart-items">
+        </div>
+        <div id="cart-summary">
+          <label class="destination-label" for="cart-destination">Para onde vamos?</label>
+          <select id="cart-destination">
+          <option value="terra">Terra · até 2 horas</option>
+          <option value="lua">Lua · até 6 horas</option>
+          <option value="marte" selected>Marte · até 12 horas</option>
+          <option value="venus">Vênus · até 24 horas · estações protegidas</option>
+          <option value="jupiter">Júpiter · até 48 horas · estações orbitais</option>
+          <option value="saturno">Saturno · até 72 horas · bases espaciais</option>
+          </select>
+          <div class="cart-total">
+            <span>Total da expedição</span><strong id="cart-total">0 CE</strong>
+          </div>
+          <button class="button button-lime checkout-button" id="checkout">Simular pedido <svg class="icon"><use href="#i-rocket"/></svg></button>
+          <p class="checkout-note">CE = créditos espaciais fictícios. Sem cobrança ou envio real.</p>
+        </div>
+      </div>
+      <div class="order-success" id="order-success" hidden>
+        <span class="success-icon"><svg class="icon"><use href="#i-check"/></svg></span>
+        <h3>Pronto para decolar!</h3>
+        <p id="order-message"></p>
+        <p class="success-note">Esta foi uma simulação: não há cobrança, pedido ou entrega real.</p>
+        <button class="button button-lime" id="continue-shopping">Continuar explorando <svg class="icon"><use href="#i-arrow"/></svg></button>
+      </div>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite">
+    </div>
+  </body>
+</html>
